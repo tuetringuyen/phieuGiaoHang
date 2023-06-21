@@ -1,0 +1,23 @@
+package phieugiaohang.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import phieugiaohang.entity.Orders;
+import phieugiaohang.repository.OrderRepository;
+import phieugiaohang.service.OrderService;
+
+@Service
+public class OrderServiceImpl implements OrderService{
+	
+	@Autowired
+	OrderRepository orderDAO;
+	
+	@Override
+	public List<Orders> findAll() {
+		return orderDAO.findAll();
+	}
+
+}

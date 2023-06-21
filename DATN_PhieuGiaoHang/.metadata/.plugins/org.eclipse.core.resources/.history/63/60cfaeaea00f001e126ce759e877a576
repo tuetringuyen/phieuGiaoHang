@@ -1,0 +1,82 @@
+package phieugiaohang.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.servlet.http.HttpServletRequest;
+import phieugiaohang.repository.OrderDetailRepository;
+import phieugiaohang.repository.OrderRepository;
+import phieugiaohang.service.DeliveryNoteService;
+
+@Controller
+public class DeliveryNoteController {
+	
+	@Autowired
+	DeliveryNoteService deliveryNoteService;
+	
+//	@RequestMapping("/product/list")
+//	public String home() {
+//		return "/product/list";
+//	}
+	
+	@RequestMapping("/home/list")
+	public String list(Model model, HttpServletRequest request) {
+		model.addAttribute("orders",deliveryNoteService.getAll());
+		return "order/list";
+	}
+	
+	@RequestMapping("/home/detail/{id}")
+	public String detail(@PathVariable("id") Integer id, Model model) {
+		model.addAttribute("order",deliveryNoteService.findByIds(id) );
+		return "order/detail";
+	}
+	
+	@RequestMapping("/delivery-note/index/{id}")
+	public String deliveryNoteIndex(@PathVariable("id") Integer id, Model model) {
+//		model.addAttribute("order",deliveryNoteService.findByIds(id) );
+		return "pgh/index";
+	}
+	
+	@RequestMapping("/delivery-note/list")
+	public String deliveryNoteIndex(Model model, HttpServletRequest request) {
+		model.addAttribute("deliveryNoteLists",deliveryNoteService.findAll());
+		return "pgh/list";
+	}
+	// Cập nhật ngày 21/6/2023
+	@RequestMapping("/delivery-note/list-new")
+	public String deliveryNoteIndexs(Model model, HttpServletRequest request) {
+		model.addAttribute("deliveryNoteLists",deliveryNoteService.findAll());
+		return "pghNew/list";
+	}
+	// Cập nhật ngày 21/6/2023
+	@RequestMapping("/delivery-note/index-new")
+	public String deliveryNoteIndexNew(Model model, HttpServletRequest request) {
+		model.addAttribute("orders",deliveryNoteService.getAll());
+		return "pghNew/index";
+	}
+	// Cập nhật ngày 21/6/2023
+	@RequestMapping({"/admin/delivery-note/index"})
+	public String admin() {
+		return "redirect:/pghNew/index.html";
+	}
+	
+	@RequestMapping("/delivery-note/create")
+	public String deliveryNoteCreate(Model model, HttpServletRequest request) {
+		model.addAttribute("orders",deliveryNoteService.getAll());
+		return "pgh/create";
+	}
+	
+	@RequestMapping("/delivery-note/get-one")
+	public String deliveryNoteGetOne(Model model, HttpServletRequest request) {
+//		model.addAttribute("deliveryNoteLists",deliveryNoteService.findAll());
+		return "pgh/getOne";
+	}
+	
+	@RequestMapping("/cart/view")
+	public String view() {
+		return "cart/view";
+	}
+}

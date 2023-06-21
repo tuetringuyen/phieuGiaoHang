@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/index::dynamic(~{::main})}">
+<body>
+    <main class="row">
+        <div class="text-center">Hiển hị ở đây nè</div>
+    </main>
+</body>
+</html>

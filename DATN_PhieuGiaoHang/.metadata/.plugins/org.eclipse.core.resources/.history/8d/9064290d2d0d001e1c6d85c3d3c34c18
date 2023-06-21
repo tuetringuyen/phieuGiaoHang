@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/home::dynamic(~{::main})}">
+<body>
+    <main>
+        <div class="panel panel-primary">
+            <div class="panel-heading">SHOPPING CART</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                        <td>1</td>
+                        <td>Tuệ</td>
+                        <td>12</td>
+                        <td>2</td>
+                        <td>sâs</td>
+                        <td>
+                            <button class="btn btn-sm btn">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="panel-footer">
+                <a class="btn btn-primary">
+                    <i class="glyphicon glyphicon-hand-right"></i>Tạo phiếu
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

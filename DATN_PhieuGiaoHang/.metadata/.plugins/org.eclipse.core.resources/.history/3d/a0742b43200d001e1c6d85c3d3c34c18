@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phiếu Giao Hàng</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body class="container">
+	<header class="row">
+		<h1 class="alert alert-success">Nguyễn Trí Tuệ</h1>
+	</header>
+	<nav class="row">
+		<div xmlns:th="http://www.thymeleaf.org">
+			<nav class="navbar navbar-inverse" style="font-variant: small-caps;">
+				<div class="container-fluid">
+					<ul class="nav navbar-nav">
+						<li><a>Home</a></li>
+						<th:block>
+							<li><a>Sign Out</a></li>
+							<li><a>Your Oders</a></li>
+							<li><a>Administration</a></li>
+							<li><a>Feedback</a></li>
+						</th:block>
+						<th:block>
+							<li><a>Sign In</a></li>
+						</th:block>
+					</ul>
+					<ul>
+						<li><a>Welcome: NGuyễn Trí Tuệ</a></li>
+					</ul>
+
+				</div>
+			</nav>
+		</div>
+	</nav>
+	<div class="row">
+		<article class="col-sm-9">
+			<div></div>
+		</article>
+		<aside class="col-sm-3">
+			<div></div>
+			<div></div>
+		</aside>
+	</div>
+	<footer class="row">
+		<h1 class="alert alert-success">FPT polytechnic &copy; 2022.All
+			rights reserved</h1>
+	</footer>
+	<script src=""></script>
+</body>
+</html>

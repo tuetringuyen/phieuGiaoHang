@@ -1,0 +1,24 @@
+package phieugiaohang.service;
+
+import java.util.List;
+
+import phieugiaohang.entity.DeliveryNote;
+import phieugiaohang.entity.OrderDetails;
+
+public interface DeliveryNoteService {
+	
+	List<DeliveryNote> findAll();
+
+	DeliveryNote create(DeliveryNote deliveryNote);
+
+	DeliveryNote findById(Integer id);
+
+	DeliveryNote update(Integer id ,DeliveryNote deliveryNote);
+
+	void delete(Integer id);
+	
+	//Ngoài lề
+	
+	OrderDetails findByIds(Integer id);
+
+}

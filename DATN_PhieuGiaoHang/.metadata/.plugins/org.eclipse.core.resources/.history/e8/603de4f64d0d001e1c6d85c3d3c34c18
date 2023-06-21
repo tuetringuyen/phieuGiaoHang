@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/home::dynamic(~{::main})}">
+<body>
+    <main th:object="${order}">
+        <div class="panel panel-primary">
+            <div class="panel-heading">ORDER LINES</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>orderDetailId</th>
+                        <th>OrderId</th>
+                        <th>productId</th>
+                        <th>quantity</th>
+                        <th>price</th>
+                        <th>amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="detail: *{orderDetails}" th:object="${detail}">
+                        <td></td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>[[*{quantity}]]</td>
+                        <td>$[[*{#numbers.formatDecimal(price,0,'COMMA',2,'POINT')}]]</td>
+                        <td>6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

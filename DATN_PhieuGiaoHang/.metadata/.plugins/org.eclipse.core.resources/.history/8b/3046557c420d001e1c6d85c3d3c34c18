@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/home::dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="panel panel-primary">
+			<div class="panel panel-heading">YOUR ORDERS PURCHASED</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>STT</th>
+						<th>paymentMethodId</th>
+						<th>address</th>
+						<th>totalPrice</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="order,state: ${orders}">
+						<td>[[${state.index +1}]]</td>
+						<td>[[${order.paymentMethodId}]]</td>
+						<td>[[${order.address}]]</td>
+						<td>[[${order.totalPrice}]]</td>
+						<td>
+							<a th:href="@{|/home/detail/${order.id}|}" class="btn btn-primary"> <i
+									class="glyphicon glyphicon-hand-right"></i> Tạo phiếu
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+</body>
+</html>

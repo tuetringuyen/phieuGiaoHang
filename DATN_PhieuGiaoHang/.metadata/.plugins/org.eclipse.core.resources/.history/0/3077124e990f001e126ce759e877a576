@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<main>
+		<a>HELLO</a>
+	</main>
+</body>
+</html>

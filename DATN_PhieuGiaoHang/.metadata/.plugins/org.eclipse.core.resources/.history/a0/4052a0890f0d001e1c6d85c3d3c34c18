@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+    <header class="row">
+        <h1 class="alert alert-success">Nguyễn Trí Tuệ</h1>
+    </header>
+    <nav class="row">
+        <div th:replace="/layout/_menu.html"></div>
+    </nav>
+    <div class="row">
+        <article class="col-sm-9">
+            <div th:replace="${main}"></div>
+        </article>
+        <aside class="col-sm-3">
+            <div th:replace="/layout/_cart-info.html"></div>
+            <div th:replace="/layout/_category.html"></div>
+        </aside>
+    </div>
+    <footer class="row">
+        <h1 class="alert alert-success">FPT polytechnic &copy; 2022.All rights reserved</h1>
+    </footer>
+</body>
+</html>

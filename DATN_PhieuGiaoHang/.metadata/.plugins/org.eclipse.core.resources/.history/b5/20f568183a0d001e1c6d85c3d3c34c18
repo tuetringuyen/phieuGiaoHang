@@ -1,0 +1,5 @@
+package phieugiaohang.repository;
+
+public interface OrderRepository {
+
+}

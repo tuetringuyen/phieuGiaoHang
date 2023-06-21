@@ -1,0 +1,40 @@
+package phieugiaohang.rest.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import phieugiaohang.entity.DeliveryNote;
+import phieugiaohang.service.DeliveryNoteService;
+
+@CrossOrigin("*")
+@RestController
+@RequestMapping("/rest/delivery-note")
+public class DeliveryNoteRestController {
+	
+	@Autowired
+	DeliveryNoteService deliveryNoteService;
+	
+//	@RequestMapping("/home")
+//	public String home(Model model) {
+//		model.addAttribute("message", "Name <b>Nguyeenx Tris Tueej</b>");
+//		return "redirect:/index.html";
+//	}
+	
+	@RequestMapping("/home/index")
+	public String home(Model model) {
+		model.addAttribute("message", "Name <b>Nguyeenx Tris Tueej</b>");
+		return "/home.html";
+	}
+	
+	@GetMapping("/get-all")
+	public List<DeliveryNote> getAll() {
+		return deliveryNoteService.findAll();
+	}
+
+}

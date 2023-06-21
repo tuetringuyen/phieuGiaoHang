@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/home::dynamic(~{::main})}">
+<body>
+    <main>
+        <div class="panel panel-primary row">
+			<div class="panel-heading">Tạo phiếu giao</div>
+			<div class="panel-body">
+                <div class="panel-heading">
+                    <div class="panel-heading" >
+                        <div class="panel panel-heading ">Dánh sách hóa đơn</div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>paymentMethodId</th>
+                                    <th>address</th>
+                                    <th>totalPrice</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="order,state: ${orders}">
+                                    <td>[[${state.index +1}]]</td>
+                                    <td>[[${order.paymentMethodId}]]</td>
+                                    <td>[[${order.address}]]</td>
+                                    <td>[[${order.totalPrice}]]</td>
+                                    <td>
+                                        <input type="radio" name="check" value="show" onclick="showDetail(2)">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-body" style="display: none;">
+                            <div id="abc">Chi tiết hóa đơn</div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div>Thông tin phiếu</div>
+                        <div class="mb-3">
+                            <label  class="form-label">Người tạo</label><input ng-model="form.employee_id" style="margin-bottom: auto;">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Thời gian tạo</label><input ng-model="form.date_insert" style="margin-bottom: auto;" type="date">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Địa chỉ giao hàng</label><input ng-model="" style="margin-bottom: auto;">
+                        </div>  
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Hình thức giao hàng</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected></option>
+                                <option ng-value="1">Trực tiếp</option>
+                                <option ng-value="2">Gián tiếp</option>
+                              </select>
+                        </div> 
+                        <div class="mb-3">
+                            <label  class="form-label">Mô tả</label><input ng-model="form.description" style="margin-bottom: auto;">
+                        </div>  
+                        <button ng-click="create()" class="btn btn-primary">
+				            <b class="glyphicon glyphicon-plus"></b> Tạo 
+				        </button>
+                    </form>
+                </div>
+			</div>
+		</div>
+    </main>
+</body>
+</html>

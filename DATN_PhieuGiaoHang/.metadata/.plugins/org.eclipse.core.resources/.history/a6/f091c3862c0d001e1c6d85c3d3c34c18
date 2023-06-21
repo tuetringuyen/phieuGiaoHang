@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/home::dynamic(~{::main})}">
+<body>
+    <main>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                        <td>1</td>
+                        <td>Tuệ</td>
+                        <td>12</td>
+                        <td>2</td>
+                        <td>sâs</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+
+    </main>
+</body>
+</html>

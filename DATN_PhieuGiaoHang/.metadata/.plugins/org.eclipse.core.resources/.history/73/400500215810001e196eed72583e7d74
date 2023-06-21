@@ -1,0 +1,11 @@
+package phieugiaohang.service;
+
+import java.util.List;
+
+import phieugiaohang.entity.DeliveryNote;
+
+public interface OrderService {
+	
+	List<DeliveryNote> findAll();
+
+}

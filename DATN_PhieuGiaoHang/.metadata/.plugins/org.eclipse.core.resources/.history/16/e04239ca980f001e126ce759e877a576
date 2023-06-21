@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/home::dynamic(~{::main})}">
+<body>
+	<main>
+		<a>HELLO</a>
+	</main>
+</body>
+</html>

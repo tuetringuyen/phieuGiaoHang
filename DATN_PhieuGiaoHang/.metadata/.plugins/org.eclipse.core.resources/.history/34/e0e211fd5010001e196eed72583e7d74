@@ -1,0 +1,98 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">Danh sách phiếu giao</div>
+	<div class="panel-body">
+		<div class="panel-heading">
+			<form>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Mã phiếu</label>
+					<input style="margin-bottom: auto;">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label">Password</label>
+					<input type="password" class="form-control"
+						id="exampleInputPassword1">
+				</div>
+				<div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Check
+						me out</label>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+		<div class="panel-body">
+			<div style="margin-bottom: 5px; text-align: right;">
+				<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalLong">
+					<i class="glyphicon glyphicon-plus"></i> Tạo phiếu giao
+				</button> 
+				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+				<button th:href="@{|/delivery-note/get-one|}" class="btn btn-warning">
+					<i class="glyphicon glyphicon-save"></i> Xuất file
+				</button>
+			</div>
+			<div class="panel panel-primary">
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>STT</th>
+							<th>deliveryId</th>
+							<th>employeeId</th>
+							<th>deliverName</th>
+							<th>invoiceNumber</th>
+							<th>description</th>
+							<th>dateInsert</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="deliveryNoteList in deliveryNoteLists ">
+							<td></td>
+							<td>{{deliveryNoteList.deliveryId}}</td>
+							<td>{{deliveryNoteList.employeeId}}</td>
+							<td>{{deliveryNoteList.deliverName}}</td>
+							<td>{{deliveryNoteList.invoiceNumber}}</td>
+							<td>{{deliveryNoteList.description}}</td>
+							<td>{{deliveryNoteList.dateInsert | date : 'dd-MM-yyyy'}}</td>
+							<td><a th:href="@{|/delivery-note/get-one|}"
+								class="btn btn-default"> <svg
+										xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+										fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+												<path
+											d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+												<path
+											d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+											  </svg>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	async function openCreate() {
+		let response = await fetch('http://localhost:8081/home/list');
+	    let posts = await response.text();
+	    console.log(posts);
+	}
+</script>

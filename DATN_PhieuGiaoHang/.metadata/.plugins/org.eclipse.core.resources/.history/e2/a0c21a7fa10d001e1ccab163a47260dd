@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/layout/home::dynamic(~{::main})}">
+<body>
+    <main>
+        <div class="panel panel-primary">
+			<div class="panel-heading">Tạo phiếu giao</div>
+			<div class="panel-body">
+				<div class="panel-heading">
+					<div class="panel panel-primary">
+                        <div class="panel panel-heading">Dánh sách hóa đơn</div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>paymentMethodId</th>
+                                    <th>address</th>
+                                    <th>totalPrice</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="order,state: ${orders}">
+                                    <td>[[${state.index +1}]]</td>
+                                    <td>[[${order.paymentMethodId}]]</td>
+                                    <td>[[${order.address}]]</td>
+                                    <td>[[${order.totalPrice}]]</td>
+                                    <td>
+                                        <a th:href="@{|/home/detail/${order.orderId}|}" class="btn btn-default">
+                                            <b class="glyphicon glyphicon-search"></b>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+				</div>
+				<div class="panel-body">
+					<form>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Mã
+								phiếu</label> <input style="margin-bottom: auto;">
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Password</label>
+							<input type="password" class="form-control"
+								id="exampleInputPassword1">
+						</div>
+						<div class="mb-3 form-check">
+							<input type="checkbox" class="form-check-input"
+								id="exampleCheck1"> <label class="form-check-label"
+								for="exampleCheck1">Check me out</label>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+    </main>
+</body>
+</html>

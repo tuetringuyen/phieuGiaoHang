@@ -1,0 +1,14 @@
+INDEX VERSION 1.4+D:\DATN_PhieuGiaoHang\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+516656548.index
+331619292.index
+3436585471.index
+2036355152.index
+2161457366.index
+4133915702.index
+4276877756.index
+3338357744.index
+4273072927.index
+3163503084.index
+2547146513.index
+3664119258.index
+1912320256.index

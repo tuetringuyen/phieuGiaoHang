@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      >
+<body>
+        <a>Hiển thị ở đây nè</a>
+</body>
+</html>

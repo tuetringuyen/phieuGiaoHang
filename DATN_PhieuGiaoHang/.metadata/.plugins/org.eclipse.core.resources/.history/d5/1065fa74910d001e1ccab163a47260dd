@@ -1,0 +1,47 @@
+package phieugiaohang.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.servlet.http.HttpServletRequest;
+import phieugiaohang.repository.OrderDetailRepository;
+import phieugiaohang.repository.OrderRepository;
+import phieugiaohang.service.DeliveryNoteService;
+
+@Controller
+public class DeliveryNoteController {
+	
+	@Autowired
+	DeliveryNoteService deliveryNoteService;
+	
+//	@RequestMapping("/product/list")
+//	public String home() {
+//		return "/product/list";
+//	}
+	
+	@RequestMapping("/home/list")
+	public String list(Model model, HttpServletRequest request) {
+		model.addAttribute("orders",deliveryNoteService.getAll());
+		return "order/list";
+	}
+	
+	@RequestMapping("/home/detail/{id}")
+	public String detail(@PathVariable("id") Integer id, Model model) {
+		model.addAttribute("order",deliveryNoteService.findByIds(id) );
+		return "order/detail";
+	}
+	
+	@RequestMapping("/delivery-note/index/{id}")
+	public String deliveryNoteIndex(@PathVariable("id") Integer id, Model model) {
+//		model.addAttribute("order",deliveryNoteService.findByIds(id) );
+		return "pgh/index";
+	}
+	
+	@RequestMapping("/cart/view")
+	public String view() {
+		return "cart/view";
+	}
+}
